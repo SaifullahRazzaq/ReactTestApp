@@ -9,6 +9,7 @@ let fieldsState = {};
 fields.forEach(field => fieldsState[field.id] = '');
 
 export default function Signup() {
+    const dispatch = useDispatch();
     const [signupState, setSignupState] = useState(fieldsState);
 
     const handleChange = (e) => setSignupState({ ...signupState, [e.target.id]: e.target.value });
