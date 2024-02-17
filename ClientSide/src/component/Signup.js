@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { signupFields } from "../constant/form"
+import { signupFields } from "../config/form"
 import FormAction from "./FormAction";
 import Input from "./Input";
+import { useDispatch } from 'react-redux';
+import { AuthMiddleware } from '../redux/Middlewares/AuthMiddleware';
 
 const fields = signupFields;
 let fieldsState = {};
@@ -11,7 +13,6 @@ fields.forEach(field => fieldsState[field.id] = '');
 export default function Signup() {
     const dispatch = useDispatch();
     const [signupState, setSignupState] = useState(fieldsState);
-
     const handleChange = (e) => setSignupState({ ...signupState, [e.target.id]: e.target.value });
 
     const handleSubmit = (e) => {
@@ -22,7 +23,7 @@ export default function Signup() {
 
     //handle Signup API Integration here
     const createAccount = () => {
-
+        // dispatch(AuthMiddleware.registerUser({em}))
     }
 
     return (
