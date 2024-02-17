@@ -85,6 +85,7 @@ app.post("/Login", async (req, res) => {
 // getAllUser
 
 app.get("/getAllUser", async (req, res) => {
+    console.log("api hot")
     try {
         const AllUser = await User.find();
         return res.send({
